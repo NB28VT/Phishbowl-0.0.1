@@ -46,7 +46,6 @@ Acceptance criteria:
   scenario "User can submit valid predictions, and get a message when they submit." do
     visit new_prediction_path
 
-    save_and_open_page
 
     fill_in('S1 Opener', with: 'A Song I Heard the Ocean Sing')
     fill_in("S1 Closer", with: "Kill Devil Falls")
@@ -66,6 +65,8 @@ Acceptance criteria:
     fill_in("Random Pick 5", with: "Sleeping Monkey")
 
     click_on "Submit Predictions"
+
+    save_and_open_page
 
     expect(page).to have_content "Predictions submitted!"
   end

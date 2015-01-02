@@ -2,53 +2,53 @@
 
 <%= form_for @prediction, url: { action: "create"} do |f| %>
 
-<%= f.label :set_one_opener %>
+<%= f.label :set_one_opener, "S1 Opener" %>
 <%= f.text_field :set_one_opener %>
 
-<%= f.label :set_one_closer %>
+<%= f.label :set_one_closer, "S1 Closer" %>
 <%= f.text_field :set_one_closer %>
 
-<%= f.label :set_two_opener %>
+<%= f.label :set_two_opener, "S2 Opener" %>
 <%= f.text_field :set_two_opener %>
 
-<%= f.label :set_two_closer %>
-<%= f.date_select :set_two_closer %>
+<%= f.label :set_two_closer, "S2 Closer"%>
+<%= f.text_field :set_two_closer %>
 
-<%= f.label :encore %>
-<%= f.date_select :encore %>
+<%= f.label :encore, "Encore"%>
+<%= f.text_field :encore %>
 
-<%= f.label :random_song_one %>
-<%= f.date_select :random_song_one %>
+<%= f.label :random_song_one, "Random Pick 1" %>
+<%= f.text_field :random_song_one %>
 
-<%= f.label :random_song_two %>
-<%= f.date_select :random_song_two %>
+<%= f.label :random_song_two, "Random Pick 2" %>
+<%= f.text_field :random_song_two %>
 
-<%= f.label :random_song_three %>
-<%= f.date_select :random_song_three %>
+<%= f.label :random_song_three, "Random Pick 3" %>
+<%= f.text_field :random_song_three %>
 
-<%= f.label :random_song_four %>
-<%= f.date_select :random_song_four %>
+<%= f.label :random_song_four, "Random Pick 4" %>
+<%= f.text_field :random_song_four %>
 
-<%= f.label :random_song_five %>
-<%= f.date_select :random_song_five %>
+<%= f.label :random_song_five, "Random Pick 5" %>
+<%= f.text_field :random_song_five %>
 
-<%= f.label :cover_song %>
-<%= f.date_select :cover_song %>
+<%= f.label :cover_song, "Cover" %>
+<%= f.text_field :cover_song  %>
 
-<%= f.label :elemental_song %>
-<%= f.date_select :elemental_song %>
+<%= f.label :elemental_song, "Elemental" %>
+<%= f.text_field :elemental_song %>
 
-<%= f.label :gamehendge_song %>
-<%= f.date_select :gamehendge_song %>
+<%= f.label :gamehendge_song, "Gamehendge" %>
+<%= f.text_field :gamehendge_song %>
 
-<%= f.label :animal_song %>
-<%= f.date_select :animal_song %>
+<%= f.label :animal_song, "Animal" %>
+<%= f.text_field :animal_song %>
 
-<%= f.label :name_song %>
-<%= f.date_select :name_song %>
+<%= f.label :name_song, "Name" %>
+<%= f.text_field :name_song %>
 
-<%= f.label :place_song %>
-<%= f.date_select :place_song %>
+<%= f.label :place_song, "Place" %>
+<%= f.text_field :place_song %>
 
 <%= f.submit "Submit Predictions" %>
 
