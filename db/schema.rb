@@ -11,10 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150101230357) do
+ActiveRecord::Schema.define(version: 20150102001635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "predictions", force: :cascade do |t|
+    t.string "set_one_opener",    null: false
+    t.string "set_one_closer",    null: false
+    t.string "set_two_opener",    null: false
+    t.string "set_two_closer",    null: false
+    t.string "encore",            null: false
+    t.string "random_song_one",   null: false
+    t.string "random_song_two",   null: false
+    t.string "random_song_three", null: false
+    t.string "random_song_four",  null: false
+    t.string "random_song_five",  null: false
+    t.string "animal_song",       null: false
+    t.string "gamehendge_song",   null: false
+    t.string "cover_song",        null: false
+    t.string "place_song",        null: false
+    t.string "elemental_song",    null: false
+    t.string "name_song",         null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",                            null: false
