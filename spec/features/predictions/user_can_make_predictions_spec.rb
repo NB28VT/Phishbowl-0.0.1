@@ -66,7 +66,6 @@ Acceptance criteria:
 
     click_on "Submit Predictions"
 
-    save_and_open_page
 
     expect(page).to have_content "Predictions submitted!"
   end
