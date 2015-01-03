@@ -85,57 +85,41 @@ class Prediction < ActiveRecord::Base
     songs_hash
   end
 
+  def self.load_cover_songs(song_hash)
+    cover_songs = []
+    song_hash.each do |song|
+      if song[1]["artist"] != "Phish"
+        cover_songs << song[0]
+      end
+    end
+    cover_songs
+  end
 
+  #Returns a hash of songs with artist and gap as values
   @songs_hash = load_songs_and_gaps
+  @cover_songs = load_cover_songs(@songs_hash)
 
-[
-  :set_one_opener,
-  :set_one_closer,
-  :set_two_opener,
-  :set_two_closer,
-  :encore,
-  :random_song_one,
-  :random_song_two,
-  :random_song_three,
-  :random_song_four,
-  :random_song_five,
-  :animal_song,
-  :gamehendge_song,
-  :cover_song,
-  :place_song,
-  :elemental_song,
-  :name_song
+  [
+    :set_one_opener,
+    :set_one_closer,
+    :set_two_opener,
+    :set_two_closer,
+    :encore,
+    :random_song_one,
+    :random_song_two,
+    :random_song_three,
+    :random_song_four,
+    :random_song_five,
+    :animal_song,
+    :gamehendge_song,
+    :cover_song,
+    :place_song,
+    :elemental_song,
+    :name_song
+  ].each do |n|
+    validates n, inclusion: { in: @songs_hash.keys, message: "Picks must be a song Phish has played."}
+  end
 
-].each do |n|
-  validates n, inclusion: { in: @songs_hash.keys, message: "Picks must be a song Phish has played."}
-
-end
-
-
-  # START HERE
-  # validates :cover_song, if: { @songs_hash[:cover_song][:artist] != "Phish" }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  validates :cover_song, inclusion: { in: @cover_songs, message: "Cover song cannot be a Phish song." }
 
 end
