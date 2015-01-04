@@ -26,16 +26,16 @@ So that I can see how good my predicting skills are.
 
 
 Acceptance criteria:
-  [ ] A user must submit a selection for every category
+  [x] A user must submit a selection for every category
   [ ] If a field is incomplete, I am given an error message and brought back to the input form WITHOUT DELETING MY OTHER PICKS
-  [ ] Songs must have been played by Phish previously.
+  [x] Songs must have been played by Phish previously.
   [ ] User will recieve a warning if the song was played in the last two shows, but can proceed anyway.
-  [ ] A cover song pick cannot be a Phish song.
-  [ ] An elemental song must come from a specified list of elemental songs.
-  [ ] A Gamehendge song must come from a specificed list of Gamehendge songs.
-  [ ] An animal song must come from a specificed list of animal songs.
-  [ ] A name song must come from a specificed list of name songs.
-  [ ] A place song must come from a specificed list of place songs.
+  [x] A cover song pick cannot be a Phish song.
+  [x] An elemental song must come from a specified list of elemental songs.
+  [x] A Gamehendge song must come from a specificed list of Gamehendge songs.
+  [x] An animal song must come from a specificed list of animal songs.
+  [x] A name song must come from a specificed list of name songs.
+  [x] A place song must come from a specificed list of place songs.
   [ ] A user can edit predictions before 7 p.m. the day of show.
   [ ] A user can't edit predicitons after 7 p.m. the day of the show.
 
@@ -56,7 +56,7 @@ Acceptance criteria:
     fill_in("Elemental", with: "Light")
     fill_in("Gamehendge", with: "Icculus")
     fill_in("Animal", with: "Sleeping Monkey")
-    fill_in("Name", with: "Sleeping Monkey")
+    fill_in("Name", with: "Jennifer Dances")
     fill_in("Place", with: "Farmhouse")
     fill_in("Random Pick 1", with: "Sleeping Monkey")
     fill_in("Random Pick 2", with: "Sleeping Monkey")
