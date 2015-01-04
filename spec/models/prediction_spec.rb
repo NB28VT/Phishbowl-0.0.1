@@ -70,25 +70,31 @@ RSpec.describe Prediction, :type => :model do
     prediction.elemental_song = "Light"
     prediction.name_song = "Sing Monica"
 
+    expect(prediction.save).to eq(false)
+  end
+
+  it "does not validate a non-animal song" do
+    prediction = Prediction.new
+
+    prediction.set_one_opener = "Farmhouse"
+    prediction.set_one_closer = "Possum"
+    prediction.set_two_opener = "Bathtub Gin"
+    prediction.set_two_closer = "Harry Hood"
+    prediction.encore = "Good Times Bad Times"
+    prediction.random_song_one = "Roggae"
+    prediction.random_song_two = "1999"
+    prediction.random_song_three = "Run Like an Antelope"
+    prediction.random_song_four = "Sing Monica"
+    prediction.random_song_five = "Farmhouse"
+    prediction.animal_song = "Light"
+    prediction.gamehendge_song = "Icculus"
+    prediction.cover_song = "1999"
+    prediction.place_song = "Farmhouse"
+    prediction.elemental_song = "Light"
+    prediction.name_song = "Sing Monica"
 
     expect(prediction.save).to eq(false)
   end
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  #
-  # pending "add some examples to (or delete) #{__FILE__}"
 end

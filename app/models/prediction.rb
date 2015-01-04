@@ -3,7 +3,6 @@ class Prediction < ActiveRecord::Base
   Dotenv.load
   # api_key = ENV[names of keys]
 
-  elemental_songs = ["Fire","Fire on the Mountain","Fire Up the Ganja", "Who By Fire", "Chariots of Fire", "Smoke on the Water", "The Chinese Water Torture", "Water in the Sky", "Cold Water", "Listening Wind", "Wind Beneath My Wings", "Windy City", "Four Strong Winds", "Light", "Fuego", "Daniel Saw the Stone", "Waves", "Born Under Punches (The Heat Goes On)", "Feel the Heat", "Burning Down the House", "Burn that Bridge", "Cold as Ice", "It\'s Ice", "Steam", "Dave\'s Energy Guide", "Dirt", "Dust in the Wind", "Energy", "Foam", "I Am Hydrogen", "N02", "Plasma", "Rocks Off", "Sea and Sand", "Sparks", "Steam", "Thunder Road", "Wading in the Velvet Sea", "A Song I Heard the Ocean Sing" ]
 
   def load_latest_show
     latest_setlist = HTTParty.get("https://api.phish.net/api.json?api=2.0&method=pnet.shows.setlists.latest")
@@ -97,7 +96,13 @@ class Prediction < ActiveRecord::Base
 
   #Returns a hash of songs with artist and gap as values
   @songs_hash = load_songs_and_gaps
+
   @cover_songs = load_cover_songs(@songs_hash)
+
+  @valid_elemental_songs = ["Fire","Fire on the Mountain","Fire Up the Ganja", "Who By Fire", "Chariots of Fire", "Smoke on the Water", "The Chinese Water Torture", "Water in the Sky", "Cold Water", "Listening Wind", "Wind Beneath My Wings", "Windy City", "Four Strong Winds", "Light", "Fuego", "Daniel Saw the Stone", "Waves", "Born Under Punches (The Heat Goes On)", "Feel the Heat", "Burning Down the House", "Burn that Bridge", "Cold as Ice", "It\'s Ice", "Steam", "Dave\'s Energy Guide", "Dirt", "Dust in the Wind", "Energy", "Foam", "I Am Hydrogen", "N02", "Plasma", "Rocks Off", "Sea and Sand", "Sparks", "Steam", "Thunder Road", "Wading in the Velvet Sea", "A Song I Heard the Ocean Sing" ]
+
+  @valid_animal_songs = ["Baby Elephant Walk", "Back at the Chicken Shack", "Big Alligator", "Big Black Furry Creature from Mars", "Birds of a Feather", "Bug", "Camel Walk", "Dixie Chicken", "Dog Faced Boy", "Dog Log", "Dogs Stole Things", "Everybody's Got Something to Hide Except Me and My Monkey", "Fee", "Fly Famous Mockingbird", "Fly Like an Eagle", "Free Bird", "Harpua", "I am the Walrus", "Little Red Rooster", "Llama", "Moby Dick", "Monkey Man", "Moose the Mooche", "No Dogs Allowed", "Ocelot", "On Green Dolphin Street", "Possum", "Rhinoceros", "Roadrunner", "Rocky Racoon", "Run Like and Antelope", "Runaway Jim", "Scent of a Mule", "Shaggy Dog", "Sleeping Monkey", "Skippy the Wondermouse", "Spanish Flea", "Terrapin", "The Birds", "The Birdwatcher", "The Chicken", "The Dogs", "The Fishin' Hole", "The Horse", "The Lion Sleeps Tonight", "The Lizards", "The Sloth", "Three Little Birds", "Timber(Jerry)", "Vultures", "White Rabbit", "Wombat" ]
+
 
   [
     :set_one_opener,
@@ -121,5 +126,6 @@ class Prediction < ActiveRecord::Base
   end
 
   validates :cover_song, inclusion: { in: @cover_songs, message: "Cover song cannot be a Phish song." }
+  validates :animal_song, inclusion: { in: @valid_animal_songs, message: "Invalid animal song!" }
 
 end
