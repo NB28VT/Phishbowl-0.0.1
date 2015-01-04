@@ -45,7 +45,7 @@ class Prediction < ActiveRecord::Base
   #   songs = []
   #
   #   lines.each do |line|
-  #     song = line.split("\"")[1]
+  #     song = line.split("\")[1]
   #     songs << song
   #   end
   #   songs = songs.compact
@@ -103,6 +103,12 @@ class Prediction < ActiveRecord::Base
 
   @valid_animal_songs = ["Baby Elephant Walk", "Back at the Chicken Shack", "Big Alligator", "Big Black Furry Creature from Mars", "Birds of a Feather", "Bug", "Camel Walk", "Dixie Chicken", "Dog Faced Boy", "Dog Log", "Dogs Stole Things", "Everybody's Got Something to Hide Except Me and My Monkey", "Fee", "Fly Famous Mockingbird", "Fly Like an Eagle", "Free Bird", "Harpua", "I am the Walrus", "Little Red Rooster", "Llama", "Moby Dick", "Monkey Man", "Moose the Mooche", "No Dogs Allowed", "Ocelot", "On Green Dolphin Street", "Possum", "Rhinoceros", "Roadrunner", "Rocky Racoon", "Run Like and Antelope", "Runaway Jim", "Scent of a Mule", "Shaggy Dog", "Sleeping Monkey", "Skippy the Wondermouse", "Spanish Flea", "Terrapin", "The Birds", "The Birdwatcher", "The Chicken", "The Dogs", "The Fishin' Hole", "The Horse", "The Lion Sleeps Tonight", "The Lizards", "The Sloth", "Three Little Birds", "Timber(Jerry)", "Vultures", "White Rabbit", "Wombat" ]
 
+  @valid_gamehendge_songs = [ "The Man Who Stepped into Yesterday", "The Lizards", "Tela", "Wilson", "AC/DC Bag", "Colonel Forbin's Ascent", "Fly Famous Mockingbird", "The Sloth", "Possum", "Divided Sky", "Llama", "McGrupp and the Watchful Hosemasters", "Punch You in the Eye", "Icculus", "Harpua", "Axilla", "Axilla, Part 2", "Kung"]
+
+  @valid_place_songs = [ "Alaska", "Albuquerque", "Babylon is Burning", "Back at the Chicken Shack", "Back in the U.S.S.R", "Bitterwsweet Motel", "Blue Bayou", "Bouncing Around the Room", "California Love", "Carolina", "Cities", "Crossroads", "Down By the River", "El Paso", "Farmhouse", "Free Man in Paris", "Halfway to the Moon", "Highway to Hell", "How High the Moon", "I Been to Georgia on a Fast Train", "In a Hole", "In the Aeroplane Over the Sea", "Jesus Just Left Chicago", "Kill Devil Falls", "L.A. Woman", "La Grange", "Life on Mars?", "Lushington", "Midnight on the Highway", "Misty Mountain Hop", "Moonlight in Vermont", "Mound", "Mountains in the Mist", "New York, New York", "Norwegian Wood (This Bird Has Flown)", "Oh Atlanta", "On Green Dolphin Street", "Rocky Mountain Way", "Somewhere Over the Rainbow", "Spanish Moon", "Stairway to Heaven", "Sugar Shack", "Susskind Hotel", "Sweet Virginia", "Tennessee Waltz", "Terrapin Station", "The Haunted House", "The Old Home Place", "Trench Town Rock", "Wading in the Velvet Sea", "Walls of the Cave", "Windy City", "Yarmouth Road" ]
+
+
+
 
   [
     :set_one_opener,
@@ -127,5 +133,9 @@ class Prediction < ActiveRecord::Base
 
   validates :cover_song, inclusion: { in: @cover_songs, message: "Cover song cannot be a Phish song." }
   validates :animal_song, inclusion: { in: @valid_animal_songs, message: "Invalid animal song!" }
+  validates :gamehendge_song, inclusion: { in: @valid_gamehendge_songs, message: "Invalid Gamehendge song!" }
+  validates :place_song, inclusion: { in: @valid_place_songs, message: "Invalid Gamehendge song!" }
+
+
 
 end
